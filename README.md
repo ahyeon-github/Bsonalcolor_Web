@@ -17,14 +17,15 @@
 # 🛠 Project Architecture
 
 
-<br>
+<br><br>
 
 # 👩 How to use
 
+<br><br>
 
 # 🎥 Demo Video Link
 
-<br>
+<br><br>
 
 # 👥 Contributor
 | Name          | Song Yubin | An jihee | Lee yeji| Lim Ahyeon|
