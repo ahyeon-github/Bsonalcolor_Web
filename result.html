@@ -12,13 +12,24 @@
         <div class="username">
             <div id=user></div>님의 브스널컬러는
         </div>
-        <div class="color" style="color:red">RED</div>
+        <div class="color" id="result_color" style="color:red">RED</div>
     </div>
     <div class="backcolor">
         <svg preserveAspectRatio="xMaxYMax slice" xmlns="http://www.w3.org/2000/svg" width="1550" height="673" viewBox="0 0 1550 673" >
-            <path d="M0 222L101.611 186L517.241 345.5L1191.2 0L1221.06 476L1550 673H0V222Z" fill="red"/><!--여기서 색상제어-->
+            <path d="M0 222L101.611 186L517.241 345.5L1191.2 0L1221.06 476L1550 673H0V222Z" fill="red"/>
         </svg>
     </div>
+    <script>
+        window.onload=function updateLED() {
+        // 바뀌는 색상
+          var color=document.getElementById("result_color").textContent.toLowerCase();
+          console.log(color);
+          
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", "/result.html?color=" + color, true);
+          xhr.send();
+        }
+    </script>
     <img src="https://ifh.cc/g/BcZjXA.png" class="character"/>
     <div class="graph-wrapper">
         <!--이곳에 그래프 그리기-->
