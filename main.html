@@ -9,6 +9,7 @@
         function test() {
             var name = document.getElementById('inputname').value;
             localStorage.setItem('name', name);
+            location.href='index.html'
         }
     </script>
 </head>
@@ -28,6 +29,8 @@
     <div class="text">여러분의 브스널컬러가 궁금하다면,</div>
     <input type="text" class="inputname" placeholder="이름을 입력해주세요" id="inputname"/><br/>
     <button type="button" onclick={test()}>검사하러 가기 →</button>
+
+    
     <footer><div><div class="ohzz">오합지졸  숙명여대</div><div class="cr">Copyrightⓒ2023 오합지졸 숙명여대 All rights reserved.</div><u>만든 사람들</u></div></footer>
 </body>
 </html>
