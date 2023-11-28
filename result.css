@@ -25,12 +25,12 @@ a {
 }
 .username {
     text-align: left;
-    margin-left: 40px;
+    margin-left: 70px;
     display: flex;
     color: #000;
     font-size: 35px;
     font-weight: 600;
-    margin-top: 30px
+    margin-top: 50px
 }
 #user {
     text-align: left;
@@ -39,4 +39,31 @@ a {
     width: 100vw;
     overflow: hidden;
     z-index: 0;
+    position: absolute;
+}
+.character {
+    z-index: 1;
+    position: absolute;
+    bottom: -20px;
+    left: 30px;
+    width: 500px;
+}
+.color {
+    margin-left: 70px;
+    font-size: 4.5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.graph-wrapper {
+    width: 800px;
+    height: 544px;
+    border-radius: 20px;
+    border: 1px solid #D5D5D5;
+    background: #FFF;
+    position: absolute;
+    z-index: 1;
+    right: 80px;
+    bottom: 50px;
 }
