@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브스널컬러</title>
+    <link rel="stylesheet" href="result.css">
+</head>
+<body>
+    <a href="index.html"><div class="go-home"><img src="img/home.png" id="home"/> 첫 화면으로</div></a>
+    <div class="username">
+        <div id=user></div>님의 브스널컬러는
+    </div>
+    <div class="backcolor">
+        <svg preserveAspectRatio="xMaxYMax slice" xmlns="http://www.w3.org/2000/svg" width="1550" height="673" viewBox="0 0 1550 673" >
+            <path d="M0 222L101.611 186L517.241 345.5L1191.2 0L1221.06 476L1550 673H0V222Z" fill="red"/><!--여기서 색상제어-->
+        </svg>
+    </div>
+    <script>
+        document.getElementById("user").innerHTML=localStorage.getItem('name');
+    </script>
+</body>
+</html>

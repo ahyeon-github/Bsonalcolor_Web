@@ -13,10 +13,10 @@
   <link rel="stylesheet" href="./style.css">
 
 </head>
-<body>
+<body style="margin:0">
   <section>
     <div class="container">
-      <h1>오합지졸님의 브스널컬러 검사를 시작합니다.</h1><br> 
+      <h1><span id="user"></span>님의 브스널컬러 검사를 시작합니다.</h1><br> 
       
   </section>
   <section>
@@ -36,6 +36,8 @@
     function move_page(){
     location.href="count_page.html"  // 페이지 이동
     }
+
+    document.getElementById("user").innerHTML=localStorage.getItem('name');
   
   </script>
 </html>
