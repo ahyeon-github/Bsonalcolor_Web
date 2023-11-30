@@ -12,11 +12,11 @@
         <div class="username">
             <div id=user></div>님의 브스널컬러는
         </div>
-        <div class="color" id="result_color" style="color:red">RED</div>
+        <div class="color" id="result_color">GREEN</div>
     </div>
     <div class="backcolor">
         <svg preserveAspectRatio="xMaxYMax slice" xmlns="http://www.w3.org/2000/svg" width="1550" height="673" viewBox="0 0 1550 673" >
-            <path d="M0 222L101.611 186L517.241 345.5L1191.2 0L1221.06 476L1550 673H0V222Z" fill="red"/>
+            <path class="back-fill" d="M0 222L101.611 186L517.241 345.5L1191.2 0L1221.06 476L1550 673H0V222Z" fill="red"/>
         </svg>
     </div>
     <script>
@@ -28,6 +28,28 @@
           var xhr = new XMLHttpRequest();
           xhr.open("GET", "/result.html?color=" + color, true);
           xhr.send();
+
+          // 텍스트에 따른 배경 색상 제어
+          var backfill = document.querySelector('.back-fill');
+          console.log(backfill);
+          var backcolor = '#fff';
+          switch (color) {
+            case 'red': backcolor = '#D24544'; break;
+            case 'blue': backcolor = '#3D98DA'; break;
+            case 'green': backcolor = '#408D0F'; break;
+            case 'yellow': backcolor = '#EBBB41'; break;
+            case 'orange': backcolor = '#E76C24'; break;
+            case 'pink': backcolor = '#FEA8BA'; break;
+            case 'purple': backcolor = '#C17ADE'; break;
+            case 'white': backcolor = '#EAEAEA'; break;
+            default: backcolor = '#000';
+          }
+          const backstyle = backfill.setAttribute('fill', backcolor);
+
+          // 텍스트에 따른 텍스트 색상 제어
+            var element = document.getElementById("result_color");
+            element.style.color = backcolor;
+            console.log(element.style.color);
         }
     </script>
     <img src="https://ifh.cc/g/BcZjXA.png" class="character"/>
