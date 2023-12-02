@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Pyscript -->
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+</head>
+
+<body>
+    <py-script>
+        from pylsl import StreamInlet, resolve_stream
+        import csv
+        
+        def main():
+            print("looking for an EEG stream...")
+            streams = resolve_stream('type', 'EEG')
+
+            inlet = StreamInlet(streams[0])
+
+            with open('test_time_5sec.csv', 'w', newline='') as csvfile:
+                spamwriter = csv.writer(csvfile, delimiter=' ',
+                                        quotechar='|', quoting=csv.QUOTE_MINIMAL)
+                while True:
+                    # get a new sample (you can also omit the timestamp part if you're not
+                    # interested in it)
+                    sample, timestamp = inlet.pull_sample()
+                    spamwriter.writerow([timestamp, sample])
+                    print(timestamp, sample)
+        if __name__ == '__main__':
+            main()
+    </py-script>
+</body>
+
+</html>

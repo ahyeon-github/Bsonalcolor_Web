@@ -9,8 +9,9 @@
         function test() {
             var name = document.getElementById('inputname').value;
             localStorage.setItem('name', name);
-            location.href='index.html'
+            location.href='index.php'
         }
+
     </script>
 </head>
 <body>

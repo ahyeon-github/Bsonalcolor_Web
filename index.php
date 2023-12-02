@@ -34,7 +34,7 @@
     setTimeout('move_page()', 8000); //8초후에 안내문구를 보여주고 해당 화면에서 move_page로 이동하는 함수실행
   
     function move_page(){
-    location.href="count_page.html"  // 페이지 이동
+    location.href="count_page.php"  // 페이지 이동
     }
 
     document.getElementById("user").innerHTML=localStorage.getItem('name');
