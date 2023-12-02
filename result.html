@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>브스널컬러</title>
     <link rel="stylesheet" href="result.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 </head>
 <body>
     <a href="main.html"><div class="go-home"><img src="https://ifh.cc/g/Vdk9Nx.png" id="home"/> 첫 화면으로</div></a>
@@ -50,14 +51,134 @@
             var element = document.getElementById("result_color");
             element.style.color = backcolor;
             console.log(element.style.color);
+
+          // 차트 그리기 
+          let myChart = echarts.init(document.getElementById('graph-wrapper'))
+          let xAxisData = ['red', 'blue', 'green', 'yellow', 'orange', 'pink', 'purple', 'white']; // x축 데이터 배열 생성
+    
+          let option = {
+            // 범례명
+            legend: {
+              data: ['집중도'],
+              top: 20,
+              right: 50,
+              itemStyle:{color:'black'}
+            },
+            tooltip: {
+                show: true,
+                trigger: 'item'
+            },
+            // x축 라벨
+            xAxis: {
+              data: xAxisData,
+            },
+            yAxis: {},
+            series: [
+              {
+                name: '집중도',
+                type: 'line', // 막대 그래프
+                data: [
+                {value: 5, itemStyle:{color:'#D24544'}},
+                {value: 3, itemStyle:{color:'#3D98DA'}},
+                {value: 10, itemStyle:{color:'#408D0F'}},
+                {value: 7, itemStyle:{color:'#EBBB41'}},
+                {value: 6, itemStyle:{color:'#E76C24'}},
+                {value: 5, itemStyle:{color:'#FEA8BA'}},
+                {value: 2, itemStyle:{color:'#C17ADE'}},
+                {value: 8, itemStyle:{color:'#EAEAEA'}}
+                ],
+                markPoint : {
+                    data : [
+                        {type : 'max', name: 'Max', itemStyle:{color:'black'}},
+                    ]
+                },
+                lineStyle: {color: '#d9d9d9'},
+                symbol: 'circle',
+                symbolSize: 15,
+              }
+            ],
+          }
+          // 3-3. 차트 옵션 설정하기
+          myChart.setOption(option)
         }
     </script>
     <img src="https://ifh.cc/g/BcZjXA.png" class="character"/>
-    <div class="graph-wrapper">
-        <!--이곳에 그래프 그리기-->
+    <input type='radio' name='charttype' value='line' checked id="line" onclick="selectType(event)"/>
+    <label for="line" id="label_line">LineChart</label>
+    <input type='radio' name='charttype' value='bar' id="bar" onclick="selectType(event)"/>
+    <label for="bar" id="label_bar">BarChart</label>
+    <div class="chart-title">
+        <div id=username></div>님의 색상에 따른 뇌파 집중도 분석 결과
     </div>
+    <div id="graph-wrapper"></div>
+        <!-- 3단계: 초기화 및 차트 옵션 설정하기 -->
+        <script type="text/javascript">
+        function selectType(event) {
+            const type = event.target.value;
+            console.log(type);
+          // 3-1. 준비한 DOM 컨테이너에서 echarts 초기화하기
+          let myChart = echarts.init(document.getElementById('graph-wrapper'))
+          let xAxisData = ['red', 'blue', 'green', 'yellow', 'orange', 'pink', 'purple', 'white']; // x축 데이터 배열 생성
+          //let seriesData = [5, 3, 10, 7, 6, 5, 2, 8]; // 값 데이터 배열 생성 여기에 집중도 값 넣기
+    
+          // 3-2. 차트 옵션 작성하기
+          let option = {
+            // 범례명
+            legend: {
+              data: ['집중도'],
+              top: 20,
+              itemStyle:{color:'black'}
+            },
+            tooltip: {
+                show: true,
+                trigger: 'item'
+            },
+            toolbox: {
+                show: true,
+                orient: 'horizontal' ,
+                itemSize: 15 ,
+                itemGap: 8 ,
+                showTitle: true ,
+            },
+            // x축 라벨
+            xAxis: {
+              data: xAxisData,
+            },
+            yAxis: {},
+            series: [
+              {
+                name: '집중도',
+                type: type, // 막대 그래프
+                data: [
+                {value: 5, itemStyle:{color:'#D24544'}},
+                {value: 3, itemStyle:{color:'#3D98DA'}},
+                {value: 10, itemStyle:{color:'#408D0F'}},
+                {value: 7, itemStyle:{color:'#EBBB41'}},
+                {value: 6, itemStyle:{color:'#E76C24'}},
+                {value: 5, itemStyle:{color:'#FEA8BA'}},
+                {value: 2, itemStyle:{color:'#C17ADE'}},
+                {value: 8, itemStyle:{color:'#EAEAEA'}}
+                ],
+                markPoint : {
+                    data : [
+                        {type : 'max', name: 'Max', itemStyle:{color:'black'}},
+                    ]
+                },
+                lineStyle: {color: '#d9d9d9'},
+                symbol: 'circle',
+                symbolSize: 15,
+              }
+            ],
+          }
+
+    
+          // 3-3. 차트 옵션 설정하기
+          myChart.setOption(option)
+        }
+        </script>
     <script>
         document.getElementById("user").innerHTML=localStorage.getItem('name');
+        document.getElementById("username").innerHTML=localStorage.getItem('name');
     </script>
 </body>
 </html>
