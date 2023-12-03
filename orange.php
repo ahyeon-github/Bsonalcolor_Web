@@ -22,7 +22,7 @@
   
   </script>
   <?php 
-    shell_exec("cd /Users/ahyeonlim/Desktop/Bsonalcolor_web/pylsl/examples && python3.10 ReceiveData.py 'orange'");
+    shell_exec("cd /Users/yubin/Bsonalcolor/Bsonalcolor_web/pylsl/examples && python3.10 ReceiveData.py 'orange'");
     ?>
 
 

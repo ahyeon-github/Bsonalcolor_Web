@@ -17,7 +17,7 @@ import math
 color = ['red', 'blue', 'green', 'yellow', 'orange', 'pink', 'purple', 'white']
 colordf = []
 for c in color:
-    file_path = "/Users/ahyeonlim/Desktop/Bsonalcolor_web/pylsl/examples/" + c + ".csv"
+    file_path = "/Users/yubin/Bsonalcolor/Bsonalcolor_web/pylsl/examples/" + c + ".csv"
     df = pd.read_csv(file_path, sep='|', header=None, names=['Timestamp', 'Values', 'NaN'])
     df = df.drop(columns=['NaN'])
 
@@ -184,7 +184,13 @@ result = pd.DataFrame.from_dict(result).T.reset_index()
 result = result.rename(columns={0:'concentrate', 'index':'color'})
 
 conc = result['concentrate'].tolist()
-conc=[i*(10**(-math.log10(max(conc)))) for i in conc]
-print(conc)
+new_con = []
+for c in conc:
+    if c>0:
+        new_con.append(math.log10(c))
+    elif c<0:
+        new_con.append(-math.log10(-c))
+    else: new_con.append(0)
+print(new_con)
 # plt.title("concentration")
 # plt.bar(result['color'], result['concentrate'])

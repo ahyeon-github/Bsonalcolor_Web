@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 </head>
 <body>
-    <a href="main.html"><div class="go-home"><img src="https://ifh.cc/g/Vdk9Nx.png" id="home"/> 첫 화면으로</div></a>
+    <a href="main.php"><div class="go-home"><img src="https://ifh.cc/g/Vdk9Nx.png" id="home"/> 첫 화면으로</div></a>
     <div style="width: fit-content;">
         <div class="username">
             <div id=user></div>님의 브스널컬러는
@@ -193,7 +193,7 @@
   <script>
   <?php 
 
-  $pydata = shell_exec("cd /Users/ahyeonlim/Desktop/Bsonalcolor_web/pylsl && python3.10 bsonalcolor_real.py");
+  $pydata = shell_exec("cd /Users/yubin/Bsonalcolor/Bsonalcolor_web/pylsl && python3.10 bsonalcolor_real.py");
   $sub_pydata = substr($pydata, 1, -1);
   $data=explode(",", $sub_pydata);
   $arr = array((float) $data[0], (float) $data[1], (float) $data[2], (float) $data[3], (float) $data[4], (float) $data[5], (float) $data[6], (float) $data[7]);
