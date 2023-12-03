@@ -85,49 +85,41 @@ def apply_bandpass_filter(df, column_name, lowcut, highcut, fs, wave, order=5):
     df[column_name + '_'+wave+'_filtered'] = filtered_data
     return df
 
-# 주파수와 주기를 정의
+# 세타파 필터링 함수
 def theta(column, df_filtered):
 
     lowcut = 4.0  # 최저 주파수 (Hz)
     highcut = 8.0  # 최고 주파수 (Hz)
     fs = len(df_filtered['Timestamp'])/(df_filtered['Timestamp'][df_filtered['Timestamp'].size-1]-df_filtered['Timestamp'][0])
 
-    # 데이터프레임과 열 이름을 설정
-    # 여기서는 예시로 빈 데이터프레임을 생성하고, 실제 데이터프레임으로 교체해야 합니다.
-
-    # 대역 통과 필터를 적용한 후 결과를 새로운 열에 저장
     df_filtered = apply_bandpass_filter(df_filtered, column+'_FFT', lowcut, highcut, fs, 'theta')
 
+    # 시각화
     # plt.figure(figsize=(60,8))
-    # # 결과를 확인하기 위해 시각화
     # plt.plot(df_filtered[:int(df_filtered[column+'_FFT_theta_filtered'].size/2)][column+'_FFT_theta_filtered'], label='Filtered Data')
     # plt.title(column+' theta brainwave')
     # plt.legend()
     # plt.show()
     return df_filtered[column+'_FFT_theta_filtered']
 
-# 주파수와 주기를 정의
+# SMR파 필터링 함수
 def SMR(column,df_filtered):
 
     lowcut = 12.0  # 최저 주파수 (Hz)
     highcut = 15.0  # 최고 주파수 (Hz)
     fs = len(df_filtered['Timestamp'])/(df_filtered['Timestamp'][df_filtered['Timestamp'].size-1]-df_filtered['Timestamp'][0])
 
-    # 데이터프레임과 열 이름을 설정
-    # 여기서는 예시로 빈 데이터프레임을 생성하고, 실제 데이터프레임으로 교체해야 합니다.
-
-    # 대역 통과 필터를 적용한 후 결과를 새로운 열에 저장
     df_filtered = apply_bandpass_filter(df_filtered, column+'_FFT', lowcut, highcut, fs, 'SMR')
 
+    # 시각화
     # plt.figure(figsize=(60,8))
-    # # 결과를 확인하기 위해 시각화
     # plt.plot(df_filtered[:int(df_filtered[column+'_FFT_SMR_filtered'].size/2)][column+'_FFT_SMR_filtered'], label='Filtered Data')
     # plt.title(column+' SMR brainwave')
     # plt.legend()
     # plt.show()
     return df_filtered[column+'_FFT_SMR_filtered']
 
-# 주파수와 주기를 정의
+# mid-bet파 필터링 함수
 def mid_beta(column,df_filtered):
 
     lowcut = 15.0  # 최저 주파수 (Hz)
@@ -136,18 +128,18 @@ def mid_beta(column,df_filtered):
 
     df_filtered = apply_bandpass_filter(df_filtered, column+'_FFT', lowcut, highcut, fs, 'mid_beta')
 
+    # 시각화
     # plt.figure(figsize=(60,8))
-    # # 결과를 확인하기 위해 시각화
     # plt.plot(df_filtered[:int(df_filtered[column+'_FFT_mid_beta_filtered'].size/2)][column+'_FFT_mid_beta_filtered'], label='Filtered Data')
     # plt.title(column+' mid beta brainwave')
     # plt.legend()
     # plt.show()
     return df_filtered[column+'_FFT_mid_beta_filtered']
 
-q99_value = df['AF7_FFT'].quantile(0.93)
-q1_value = df['AF7_FFT'].quantile(0.07)
+# 이상치 데이터 제거
+q99_value = df['AF7_FFT'].quantile(0.99)
+q1_value = df['AF7_FFT'].quantile(0.01)
 
-# IQR을 기반으로 이를 벗어나는 데이터 제거
 df_filtered = df[(df[column+'_FFT'] >= q1_value) & (df[column+'_FFT'] <= q99_value)]
 df_filtered=df_filtered.reset_index().drop('index', axis=1)
 
