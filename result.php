@@ -166,7 +166,7 @@
                 {value: orange, itemStyle:{color:'#E76C24'}},
                 {value: pink, itemStyle:{color:'#FEA8BA'}},
                 {value: purple, itemStyle:{color:'#C17ADE'}},
-                {value: white, itemStyle:{color:'#EAEAEA'}}
+                {value: white, itemStyle:{color:'#262626'}}
                 ],
                 markPoint : {
                     data : [
@@ -247,7 +247,7 @@
         backcolor = '#C17ADE';
         break;
       case 'white':
-        backcolor = '#EAEAEA';
+        backcolor = '#262626';
         break;
       default:
         backcolor = '#000';
@@ -325,7 +325,7 @@
           },
           {
             value:white,
-            itemStyle: { color: '#EAEAEA' }
+            itemStyle: { color: '#262626' }
           }
         ],
         markPoint: {
