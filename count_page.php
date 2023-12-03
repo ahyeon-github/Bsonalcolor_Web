@@ -31,16 +31,11 @@
                 clearInterval(sec ); 
             }
         },1000);
-    
         setTimeout('move_page()', 3000); //3초 카운트 후 해당 화면에서 방 색깔 보여주는 (RED) 화면 전환
-      
         function move_page(){
         location.href="red.php"  // 페이지 이동
         }
-        
     </script>
-
-
 </body>
 
 </html>
