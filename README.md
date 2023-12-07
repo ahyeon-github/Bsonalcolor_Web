@@ -23,6 +23,11 @@
 <br>
 
 # 🛠 Project Architecture
+![9](https://github.com/ohzzwer1/Bsonalcolor_Web/assets/102468718/1d3766a7-94a0-4303-b234-aed750dc793f)
+![10](https://github.com/ohzzwer1/Bsonalcolor_Web/assets/102468718/8be71b97-e2b2-49be-82f2-65677b2956e3)
+![11](https://github.com/ohzzwer1/Bsonalcolor_Web/assets/102468718/0e529cad-bf2d-493f-aca5-ec4741427c8e)
+![12](https://github.com/ohzzwer1/Bsonalcolor_Web/assets/102468718/bf861213-7c88-4a99-86f9-996f80aebe40)
+![13](https://github.com/ohzzwer1/Bsonalcolor_Web/assets/102468718/2ee5ca82-cb40-442c-bcc1-9b5861a87367)
 
 
 <br><br>
@@ -32,13 +37,20 @@
 ```
 php -S 127.0.0.1:8000
 ```
-<small>로컬 http://127.0.0.1:8000/main.php 에서 웹 확인 가능</small>
-### Step 1️⃣
-muse2 착용를 착용해주세요.
-### Step 2️⃣
-브스널컬러 웹페이지를 통해 뇌파 색상 선호도 검사를 진행하세요.
-### Step 3️⃣
-여러분만의 브스널컬러에 따라 바뀌는 무드등을 확인해보세요!
+로컬 http://127.0.0.1:8000/main.php 에서 웹 확인 가능</small>
+#### Step 1️⃣ muse2 착용를 착용해주세요.
+#### Step 2️⃣ 브스널컬러 웹페이지를 통해 뇌파 색상 선호도 검사를 진행하세요.
+#### Step 3️⃣ 여러분만의 브스널컬러에 따라 바뀌는 무드등을 확인해보세요!
+
+<br><br>
+
+# 💥 Final Product
+![16](https://github.com/ohzzwer1/Bsonalcolor_Web/assets/102468718/e94e05ba-8927-4397-bc94-5bb043df8058)
+### `Software`
+각 색상별로 집중도를 확인할 수 있는 그래프를 막대그래프와 꺾은선그래프 형태로 확인할 수 있으며, 가장 집중도가 높게 측정된 자신의 브스널컬러를 확인할 수 있습니다. 
+### `Hardware`
+측정된 브스널컬러로 무드등이 연출되는 것을 확인할 수 있습니다.
+
 
 <br><br>
 
